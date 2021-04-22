@@ -1,0 +1,35 @@
+.Navbar{
+    display:flex;
+    background-color: black;
+    color:white;
+    font-size:20px;
+    padding-top:2px;
+}
+.gamespace{
+    display:flex;
+    width:30vw;
+}
+.navi{
+    display:flex;
+    width:40vw;
+}
+.naviButton{
+    width:33%;
+}
+.ico{
+    color:grey;
+}
+.icons{
+    width:30%;
+}
+.btn-dark{
+    background-color: black;
+}
+.loginPane{
+    width:70%;
+    padding-left:5px;
+}
+.rightPane{
+    width:30vw;
+    display:flex;
+}

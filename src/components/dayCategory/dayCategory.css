@@ -1,0 +1,12 @@
+.dayCategory{
+    width:100%;  
+    display: block;
+}
+.dayCategoryHeader{
+    margin:auto;
+    text-align:center;
+}
+.carousel{
+    margin:auto;
+    width:60vw;
+}

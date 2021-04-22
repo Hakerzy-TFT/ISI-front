@@ -1,0 +1,16 @@
+.cardImage{
+    width:100%;
+}
+.mainGameCarousel{
+    margin:0,0,0,0;
+    position:relative;
+}
+.dataCarousel{
+    position:absolute;
+    top: 80%;
+  left: 50%;
+    transform: translate(-50%, -50%);
+}
+.more,.tests{
+    margin:20px
+}
