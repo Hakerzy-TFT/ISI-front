@@ -1,0 +1,20 @@
+.fromAuthor{
+    width:100%;
+    text-align:center;
+    font-size: 25px;
+}
+.fromAuthorContent{
+display:table;
+}
+.fromAuthorOption{
+    text-align:center;
+    display: table-cell;
+    width:20vw;
+}
+.miniatureContentGame{
+    padding-left:5%;
+    padding-right:5%;
+    padding-top:5%;
+    width:40%;
+    display: table-cell;
+}

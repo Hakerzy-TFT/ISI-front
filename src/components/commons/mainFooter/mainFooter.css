@@ -1,0 +1,13 @@
+.mainFooter{
+    
+    background-color:grey;
+    width:100%;
+    font-size:20px;
+}
+.onePointThreeTab{
+    display: table;
+}
+.onePointThreeColumn{
+    display: table-cell;
+    width:33vw;
+}

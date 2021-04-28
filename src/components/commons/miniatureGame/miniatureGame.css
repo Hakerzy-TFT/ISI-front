@@ -1,0 +1,9 @@
+.miniatureGame{
+    width:100%;
+    border:1px solid black;
+}
+.miniatureGameImg{
+    align-content:left;
+    left:0%;
+    width:20%;
+}

@@ -1,19 +1,22 @@
 import './App.css';
-import Navbar from './components/navbar/Navbar'
-import MainGameCarousel from './components/mainGameCarousel/mainGameCarousel'
-import DayCategory from './components/dayCategory/dayCategory'
+import Home from './components/fullComponents/Home/Home';
+import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-          <Navbar />
-          </header>
-          <MainGameCarousel/>
-          <DayCategory/>
-      
-    </div>
-  );
+export default function App() {
+    return (
+      <Router className="rrouter">
+        <div>
+        <Switch className="sswitch">
+          <Route exact path="/" component={Home} />
+          </Switch>
+        </div>
+      </Router>
+    );
 }
 
-export default App;

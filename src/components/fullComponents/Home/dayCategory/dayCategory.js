@@ -4,7 +4,7 @@ import './dayCategory.css'
 function dayCategory() {
     return (
         <div className="dayCategory">
-            <div className="dayCategoryHeader"><h1>KATEGORIE DNIA</h1></div>
+            <div className="dayCategoryHeader"><h1>POLECANE GRY</h1></div>
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
