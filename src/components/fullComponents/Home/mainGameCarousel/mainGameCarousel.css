@@ -2,7 +2,7 @@
     width:100%;
 }
 .mainGameCarousel{
-    margin:0,0,0,0;
+    margin:0px 0px 0px 0px;
     position:relative;
 }
 .dataCarousel{
@@ -13,4 +13,11 @@
 }
 .more,.tests{
     margin:20px
+}
+.mainGameCarouselText{
+    color:white;
+    font-size:50px;
+    position: relative;
+    transform: translateX(10%);
+    text-shadow: 3px 3px black;
 }

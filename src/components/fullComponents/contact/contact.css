@@ -1,0 +1,16 @@
+.contactContent{
+    min-height:77vh;
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-image:url("contactUsBackground.jpg");
+    text-align:center;
+}
+.contact{
+    height:100vh;
+}
+a{
+    color:black;
+}
+a::hover{
+    color: #00F;
+}

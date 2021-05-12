@@ -1,8 +1,8 @@
 .mainFooter{
-    
     background-color:grey;
     width:100%;
     font-size:20px;
+    height:14vh;
 }
 .onePointThreeTab{
     display: table;
@@ -11,3 +11,12 @@
     display: table-cell;
     width:33vw;
 }
+.link {
+    color: #000;
+  }
+  .link:hover {
+     color: #00F
+  }
+  .favIcon{
+      width:100px;
+  }

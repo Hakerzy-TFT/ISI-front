@@ -1,7 +1,7 @@
-input[type=text], input[type=password] {
+input[type=email], input[type=password] {
     width: 100%;
     padding: 12px 20px;
-    margin: 8px 0;
+    margin: 8px 0px;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -11,7 +11,7 @@ input[type=text], input[type=password] {
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 0px;
     border: none;
     cursor: pointer;
     width: 100%;
@@ -22,14 +22,14 @@ input[type=text], input[type=password] {
   }
   
   .cancelbtn {
-    width: auto;
+    width: 100%;
     padding: 10px 18px;
-    background-color: #f44336;
+    background-color: #6236f4;
   }
   
   .imgcontainer {
     text-align: center;
-    margin: 24px 0 12px 0;
+    margin: 24px 0px 12px 0px;
   }
   
   img.avatar {
@@ -44,6 +44,11 @@ input[type=text], input[type=password] {
   span.psw {
     float: right;
     padding-top: 16px;
+  }
+  .loginAndRegister{
+    width:40vw;
+    height:60vh;
+    transform: translate(80%,40%);
   }
   
   /* Change styles for span and cancel button on extra small screens */

@@ -1,9 +1,20 @@
 .miniatureGame{
     width:100%;
     border:1px solid black;
+    font-size:12px;
+    display:flex;
+    margin-top:5px;
+    margin-bottom:5px;
 }
 .miniatureGameImg{
+    display:flex;
     align-content:left;
     left:0%;
+    width:100%;
+}
+.miniatureGameImgDiv{
     width:20%;
+}
+.miniatureGameTextDiv{
+   
 }

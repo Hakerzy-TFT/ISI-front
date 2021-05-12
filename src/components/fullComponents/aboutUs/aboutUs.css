@@ -1,0 +1,14 @@
+.aboutUsContent {
+    min-height: 77vh;
+    text-align: center;
+    background-image: url("aboutUsBackground.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    opacity: 0.8;
+}
+
+.aboutUsText {
+    position: relative;
+    transform: translateY(200%);
+}

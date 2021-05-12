@@ -1,5 +1,5 @@
-import React from 'react'
-import './dayCategory.css'
+import React from 'react';
+import './dayCategory.css';
 
 function dayCategory() {
     return (

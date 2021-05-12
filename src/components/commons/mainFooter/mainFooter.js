@@ -1,25 +1,28 @@
-import React from 'react'
-import './mainFooter.css'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './mainFooter.css';
 function mainFooter() {
     return (
-        <div className="mainFooter">
-            GAMESPACE <i className="fab fa-chrome"></i>
-            <br />
-            <div className="onePointThreeTab">
-                <div className="onePointThreeColumn">
-                    O NAS <br />
-            WSPARCIE
+        <footer>
+            <div className="mainFooter">
+                <img src={process.env.PUBLIC_URL + '/favicon_with_txt.png'} className="favIcon" />
+                <br />
+                <div className="onePointThreeTab">
+                    <div className="onePointThreeColumn">
+                        <Link to='/aboutUs' className="link">O NAS</Link> <br />
+                        <Link to='/support' className="link">WSPARCIE</Link>
             </div>
-                <div className="onePointThreeColumn">
-                    INFORMACJE PRAWNE <br />
-            WARUNKI UŻYTKOWANIA
+                    <div className="onePointThreeColumn">
+                        INFORMACJE PRAWNE <br />
+                        <Link to='/termsOfUse' className="link">WARUNKI UŻYTKOWANIA</Link>
+                    </div>
+                    <div className="onePointThreeColumn">
+                        <br />
+                        <Link to='/contact' className="link"> KONTAKT</Link>
+                    </div>
+                </div>
             </div>
-                <div className="onePointThreeColumn">
-                    <br />
-            KONTAKT
-            </div>
-            </div>
-        </div>
+        </footer>
     )
 }
 
