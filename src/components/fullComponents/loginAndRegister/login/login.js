@@ -75,7 +75,7 @@ function LoginAndRegister() {
                         <br />
                         <br />
                         <br />
-                        <input className="btn btn-dark loginbutton" type="submit" value="Sign in" />
+                        <input className="btn btn-dark loginbutton" type="submit" value="Zaloguj się" />
                         {
                             (errors.email
                                 &&
@@ -88,7 +88,7 @@ function LoginAndRegister() {
                     <div id="data-container" data-value=""></div>
                 </div>
                 <div className="loginButtons">
-                    <Link to="/register"><button className="btn btn-dark loginbutton" > Sign up </button></Link>
+                    <Link to="/register"><button className="btn btn-dark loginbutton" > Przejdź do rejestracji </button></Link>
                     <br />
                     <Link to="/"><i class="fas fa-home fa-4x"></i></Link>
                 </div>

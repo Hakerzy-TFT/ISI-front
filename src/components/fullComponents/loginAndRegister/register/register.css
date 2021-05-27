@@ -1,15 +1,6 @@
 .register {
     height: 100vh;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(162deg, rgba(2, 0, 36, 1) 0%, rgba(18, 9, 121, 1) 46%, rgba(226, 0, 255, 1) 100%);
-    color: #FFF;
-}
-
-.registerForm {
-    display: table;
-    padding-top: 30vh;
-    margin: 0 auto;
-
+    display: flex;
 }
 
 input {
@@ -25,10 +16,46 @@ label {
 input[type=submit] {
     min-width: 30vw;
 }
-.data-container{
-    width:400px;
-    height:300px;
-    opacity:1;
-    z-index:2;
-    overflow:hidden;
+
+.data-container {
+    width: 400px;
+    height: 300px;
+    opacity: 1;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.registerImage {
+    height: 100vh;
+    width: 50vw;
+    background-image: url("Desert.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.registerContent {
+    min-width: 50vw;
+}
+
+.registerHeader {
+    height: 30vh;
+    font-size: 40px;
+    text-align: center;
+    display: table;
+    margin: 0 auto;
+}
+
+.registerForm {
+    text-align: center;
+    height: 40vh;
+}
+
+.registerButtons {
+    text-align: center;
+    height: 30vh;
+}
+
+.registerbutton {
+    width: 30vw;
+    margin-bottom: 15px;
 }

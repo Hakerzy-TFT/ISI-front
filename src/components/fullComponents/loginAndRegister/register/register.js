@@ -50,6 +50,11 @@ function Register() {
     
     return (
         <div className="register">
+            
+            <div className="registerContent">
+            <div className="registerHeader">
+                    GAME SPACE
+            </div>
             <form className="registerForm" onSubmit={handleSubmit(onSubmit)}>
                 <div className="registerDiv">
                     <label htmlFor="email">Email:</label>
@@ -77,7 +82,7 @@ function Register() {
                         }
                     })} />
                     <br />
-                    <input className="btn btn-success" type="submit" />
+                    <input className="btn btn-dark loginbutton" type="submit" value="Zarejestruj się" />
                     {
                         (errors.email
                             &&
@@ -101,11 +106,15 @@ function Register() {
                 </div>
             </form>
             <div id="data-container" data-value=""></div>
+            <div className="loginButtons">
+                    <Link to="/login"><button className="btn btn-dark loginbutton" > Przejdź do logowania </button></Link>
+                    <br />
+                    <Link to="/"><i class="fas fa-home fa-4x"></i></Link>
+                </div>
+            </div>
+            <div className="registerImage"></div>
         </div>
     )
-    /*function hide(){
-        document.getElementById("data-container").style.overflow="hidden";
-    };*/
 }
 
 export default Register
