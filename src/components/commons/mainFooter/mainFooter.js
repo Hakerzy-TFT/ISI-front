@@ -13,7 +13,7 @@ function mainFooter() {
                         <Link to='/support' className="link">WSPARCIE</Link>
             </div>
                     <div className="onePointThreeColumn">
-                        INFORMACJE PRAWNE <br />
+                    <Link to='/legalInfo' className="link">INFORMACJE PRAWNE</Link> <br />
                         <Link to='/termsOfUse' className="link">WARUNKI UŻYTKOWANIA</Link>
                     </div>
                     <div className="onePointThreeColumn">

@@ -1,6 +1,6 @@
-import React from 'react'
-import './fromAuthor.css'
-import MiniatureGame from '../../../commons/miniatureGame/miniatureGame'
+import React from 'react';
+import './fromAuthor.css';
+import MiniatureGame from '../../../commons/miniatureGame/miniatureGame';
 function fromAuthor() {
     return (
         <div className="fromAuthor">

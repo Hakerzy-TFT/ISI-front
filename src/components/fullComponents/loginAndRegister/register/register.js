@@ -28,7 +28,7 @@ function Register() {
                 'Content-Type': 'text/json'
             }
         }).then(response => { console.log(response)
-            var dataContainer = document.getElementById('data-container');
+           /* var dataContainer = document.getElementById('data-container');
             var dataValue = dataContainer.getAttribute('data-value');
             if (response.status === "200") {
                 dataContainer.setAttribute('data-value', "Konto zostało utworzone");
@@ -40,7 +40,7 @@ function Register() {
                 dataContainer.setAttribute('data-value', "Konto już istnieje");
                 dataContainer.innerHTML="Konto już istnieje";
                 dataContainer.style.overflow="visible";
-            }
+            }*/
             
         
         }).catch(error => {

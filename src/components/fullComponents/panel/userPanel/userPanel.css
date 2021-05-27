@@ -1,0 +1,53 @@
+.userPanelContent {
+    min-height: 77vh;
+    display: flex;
+}
+
+.userPanel {
+    min-height: 100vh;
+}
+
+.userPanelLeftContent {
+    flex: 2;
+    min-height: 77vh;
+    background-color:rgba(0, 0, 0, 0.87);
+    text-align: center;
+}
+
+.userPanelRightContent {
+    flex: 5;
+    min-height: 77vh;
+    background-color:rgba(56, 55, 55, 0.857);
+}
+.fa-wheelchair{
+    color:white;
+    padding-bottom: 5px;
+}
+.userPanelLevel{
+    margin: auto;
+    width:50%;
+    height:10vh;
+    background-color:rgba(56, 55, 55, 0.857);
+    color:white;
+    float:center;
+}
+.userPanelOptions{
+    height:10vh;
+    background-color:rgba(56, 55, 55, 0.857);
+    color:white;
+    float:center;
+}
+.userPanelOptions{
+    margin-top:5vh;
+    padding-top:3vh;
+}
+.userPanelRightContent{
+    color:white;
+    font-size:20px;
+}
+.userPanelActivities{
+    background-color:rgba(0, 0, 0, 0.87);
+    width:90%;
+    padding-top:20px;
+    margin:auto;
+}

@@ -9,7 +9,6 @@ function support() {
         <div className="support">
             <Navbar />
             <div className="supportContent">
-            
                    <section className="mb-4">
                     <h2 className="h1-responsive font-weight-bold text-center my-4">Wsparcie</h2>
                     <p className="text-center w-responsive mx-auto mb-5">W przypadku jakichkolwiek pytań i problemów, napisz</p>
@@ -60,7 +59,6 @@ function support() {
                                 <li><i className="fas fa-phone mt-4 fa-2x"></i>
                                     <p></p>
                                 </li>
-
                                 <li><i className="fas fa-envelope mt-4 fa-2x"></i>
                                     <p>contact@gamespace.pl</p>
                                 </li>

@@ -6,7 +6,10 @@ function sugested() {
     return (
         <div>
             <Navbar/>
+            <div className="sugestedContent">
             Polecane
+            </div>
+            
             <MainFooter/>
         </div>
     )

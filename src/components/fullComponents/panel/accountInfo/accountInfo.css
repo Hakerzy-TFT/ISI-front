@@ -1,0 +1,56 @@
+.accountInfoContent {
+    min-height: 77vh;
+    display: flex;
+}
+
+.accountInfo {
+    min-height: 100vh;
+}
+
+.accountInfoLeftContent {
+    flex: 2;
+    min-height: 77vh;
+    background-color:rgba(0, 0, 0, 0.87);
+    text-align: center;
+}
+
+.accountInfoRightContent {
+    flex: 5;
+    min-height: 77vh;
+    background-color:rgba(56, 55, 55, 0.857);
+}
+.fa-wheelchair{
+    color:white;
+    padding-bottom: 5px;
+}
+.accountInfoLevel{
+    margin: auto;
+    width:50%;
+    height:10vh;
+    background-color:rgba(56, 55, 55, 0.857);
+    color:white;
+    float:center;
+}
+.accountInfoOptions{
+    height:10vh;
+    background-color:rgba(56, 55, 55, 0.857);
+    color:white;
+    float:center;
+}
+.accountInfoOptions{
+    margin-top:5vh;
+    padding-top:3vh;
+}
+.accountInfoRightContent{
+    color:white;
+    font-size:20px;
+}
+.accountInfoActivities{
+    background-color:rgba(0, 0, 0, 0.87);
+    width:90%;
+    padding-top:20px;
+    margin:auto;
+}
+.labelAccountInfo{
+    width:20vw;
+}

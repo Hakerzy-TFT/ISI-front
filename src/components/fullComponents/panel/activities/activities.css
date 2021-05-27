@@ -1,0 +1,38 @@
+.activities {
+    width: 90%;
+    background-color: rgba(56, 55, 55, 0.857);
+    margin: auto;
+    margin-bottom: 10px;
+    
+}
+.smallLetters{
+    font-size:10px;
+}
+.activitiesHeader{
+    display: flex;
+    width:100%;
+}
+.activitiesIco{
+    width:10%;
+}
+.activitiesUserDescription{
+    width:30%;
+}
+.activitiesGame{
+    min-width:60%;
+    display: flex; 
+    justify-content: flex-end;
+    margin-right:6px;
+    font-size:16px;
+}
+.activitiesContentHeader{
+    font-size: 12px;
+    color:rgb(147, 25, 110);
+}
+.activitiesText{
+    font-size: 10px;
+    text-align:center;
+}
+.readMore{
+    color:aqua;
+}

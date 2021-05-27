@@ -9,6 +9,9 @@ import Contact from './components/fullComponents/contact/contact';
 import AboutUs from './components/fullComponents/aboutUs/aboutUs';
 import TermsOfUse from './components/fullComponents/termsOfUse/termsOfUse';
 import Support from './components/fullComponents/support/support';
+import LegalInfo from './components/fullComponents/legalInfo/legalInfo';
+import UserPanel from './components/fullComponents/panel/userPanel/userPanel';
+import AccountInfo from './components/fullComponents/panel/accountInfo/accountInfo';
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -18,6 +21,7 @@ import {
 } from 'react-router-dom';
 
 function App() {
+  localStorage.setItem('permission', "");
   return (
     <div>
       <Router className="rrouter">
@@ -33,6 +37,9 @@ function App() {
           <Route path="/aboutUs" component={AboutUs} />
           <Route path="/termsOfUse" component={TermsOfUse} />
           <Route path="/support" component={Support} />
+          <Route path="/legalInfo" component={LegalInfo} />
+          <Route path="/userPanel" component={UserPanel} />
+          <Route path="/accountInfo" component={AccountInfo} />
         </Switch>
 
       </Router>
