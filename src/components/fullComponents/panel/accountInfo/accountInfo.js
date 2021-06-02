@@ -17,6 +17,7 @@ function accountInfo() {
                     <i class="fas fa-wheelchair fa-3x"></i>
                     <div className="accountInfoInfos">
                         <div className="userPanelLevel">
+                            {localStorage["username"]}<br />
                             14<br />
                         Poziom społeczności
                         </div>

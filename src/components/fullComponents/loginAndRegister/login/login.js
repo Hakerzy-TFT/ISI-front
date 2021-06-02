@@ -9,10 +9,21 @@ import {
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { useCookies } from 'react-cookie';
+import jwt_decode from "jwt-decode";
+
+
+class daneLogowania {
+    constructor(userMail, password, role) {
+        this.userMail = userMail;
+        this.password = password;
+        this.role = role;
+    }
+}
+
 
 function LoginAndRegister() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const [cookies, setCookie] = useCookies(['access_token', 'refresh_token']);
+    const [cookies, setCookie] = useCookies(['access_token']);
     const history = useHistory();
     function handleClick() {
         history.push("/");
@@ -20,42 +31,36 @@ function LoginAndRegister() {
 
     const OnSubmit = (data) => {
         let check = '';
+        let danee = new daneLogowania(data.email, data.password, "string");
         console.log(data);
-        /*axios.post('https://localhost:5001/api/users', data, {
+        axios.post('https://localhost:5001/api/Users/login', danee, {
             headers: {
-                'Content-Type': 'text/json'
+                'Content-Type': 'application/json'
             }
         }).then(response => {
             console.log(response);
-            if (response.status === "200") {
-                check = "OK";
+            if (response.status == "200") {
+                let expires = new Date();
+                expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
+                setCookie('access_token', response.data, { path: '/', expires });
+                var decoded = jwt_decode(cookies["access_token"]);
+                localStorage.setItem('username', decoded.email);
+                localStorage.setItem('permission', "string");
+                handleClick();
             }
-            if (response.status === "403") {
-                check = "Not Found";
-            }
-            let expires = new Date();
-            expires.setTime(expires.getTime() + (response.data.expires_in * 60000));
-            setCookie('access_token', response.data.access_token, { path: '/', expires,httpOnly  });
-            setCookie('refresh_token', response.data.refresh_token, { path: '/', expires,httpOnly  });
-            localStorage.setItem('permission',response.body.usertype);
-        }).catch(error => {
-            console.log(error.response);
-        });*/
-        if (check === "OK") {
-            handleClick();
-        }
-        else {
-            var dataContainer = document.getElementById('data-container');
-            var dataValue = dataContainer.getAttribute('data-value');
-            dataContainer.setAttribute('data-value', "Niepoprawny login lub hasło");
-            dataContainer.innerHTML = "Niepoprawny login lub hasło";
-            dataContainer.style.overflow = "visible";
-            setTimeout(() => {
-                dataContainer.setAttribute('data-value', "");
+            console.log(check);
+
+        });
+        var dataContainer = document.getElementById('data-container');
+        dataContainer.setAttribute('data-value', "Niepoprawny login lub hasło");
+        dataContainer.innerHTML = "Niepoprawny login lub hasło";
+        dataContainer.style.overflow = "visible";
+        setTimeout(() => {
+            dataContainer.setAttribute('data-value', "");
             dataContainer.innerHTML = "";
             dataContainer.style.overflow = "hidden";
-            }, 5000);
-        }
+        }, 5000);
+
     };
 
     return (

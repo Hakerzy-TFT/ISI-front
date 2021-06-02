@@ -1,3 +1,58 @@
-.rankBody{
-    min-height:77vh;
+.rankBody {
+    min-height: 77vh;
+}
+
+.rankHeader {
+    text-align: center;
+    display: flex;
+    height: 10vh;
+    width: 90vw;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.rankPopular {
+    flex: 2;
+    background-color: rgb(221, 89, 219);
+    border-radius: 25px 0px 0px 25px;
+    color: white;
+    padding-top: 1vh;
+    font-size: 30px;
+}
+
+.rankPopularContent {
+    flex: 5;
+    background-color: rgba(56, 55, 55, 0.857);
+    border-radius: 0px 25px 25px 0px;
+    padding-top: 1vh;
+    color: white;
+}
+
+.rankContent {
+    background-color: rgba(56, 55, 55, 0.857);
+    text-align: center;
+    display: flex;
+    width: 90vw;
+    margin: auto;
+}
+
+.rankLeftContent {
+    flex: 1;
+    color: white;
+}
+
+.rankRightContent {
+    flex: 5;
+    color: white;
+}
+
+#rankSort {
+    background-color: rgb(123, 111, 111);
+    color: white;
+    padding-bottom: 2px;
+}
+
+.RankSelect {
+    margin: auto;
 }

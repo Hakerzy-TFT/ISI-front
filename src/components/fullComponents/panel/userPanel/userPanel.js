@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component,useEffect } from 'react';
 import './userPanel.css';
 import Navbar from '../../../commons/navbar/Navbar';
 import MainFooter from '../../../commons/mainFooter/mainFooter';
-import Activities from'../activities/activities';
+import Activities from '../activities/activities';
 import { ShowForPermission } from '../../../ShowForPermissions';
 import {
     Link
 } from 'react-router-dom';
 
-function userPanel() {
+
+function UserPanel() {
     return (
         <div className="userPanel">
             <Navbar />
@@ -16,7 +17,9 @@ function userPanel() {
                 <div className="userPanelLeftContent">
                     <i class="fas fa-wheelchair fa-3x"></i>
                     <div className="userPanelInfos">
+
                         <div className="userPanelLevel">
+                            {localStorage["username"]}<br />
                             14<br />
                         Poziom społeczności
                         </div>
@@ -34,18 +37,18 @@ function userPanel() {
                 <div className="userPanelRightContent">
                     PRZEGLĄD AKTYWNOŚCI:
                     <div className="userPanelActivities">
-                        
-                        <Activities/>
-                        <Activities/>
-                        <Activities/>
-                        <Activities/>
-                        <Activities/>
+
+                        <Activities />
+                        <Activities />
+                        <Activities />
+                        <Activities />
+                        <Activities />
                     </div>
                 </div>
             </div>
             <MainFooter />
-        </div>
+        </div >
     )
 }
 
-export default userPanel
+export default UserPanel
