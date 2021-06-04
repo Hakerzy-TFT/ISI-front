@@ -1,0 +1,30 @@
+.dropdownMenu {
+    display: none;
+    float: right;
+    width: 24.5vw;
+    margin-left: 1px;
+}
+
+.dropdownMenuHeader {
+    width: 100%;
+    display:flex;
+}
+.dropdownMenuUsername{
+    font-style: italic;
+    flex:1;
+}
+.dropdownMenuIco{
+    flex:1
+}
+.dropdownMenuUsername h1{
+    font-size:20px;
+}
+.dropdownMenuOpiton{
+    display:flex;
+}
+.dropdownMenuCoins{
+    right:0px;
+    width: 33.33%;
+    position: absolute;
+    color: gold;
+}
