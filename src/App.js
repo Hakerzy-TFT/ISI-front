@@ -12,6 +12,7 @@ import Support from './components/fullComponents/support/support';
 import LegalInfo from './components/fullComponents/legalInfo/legalInfo';
 import UserPanel from './components/fullComponents/panel/userPanel/userPanel';
 import AccountInfo from './components/fullComponents/panel/accountInfo/accountInfo';
+import TopUpCoins from './components/fullComponents/topUpCoins/topUpCoins';
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -40,6 +41,7 @@ function App() {
           <Route path="/legalInfo" component={LegalInfo} />
           <Route path="/userPanel" component={UserPanel} />
           <Route path="/accountInfo" component={AccountInfo} />
+          <Route path="/topUpCoins" component={TopUpCoins} />
         </Switch>
 
       </Router>
