@@ -8,7 +8,7 @@ function rankElement() {
                 1
             </div>
             <div className="rankElementView">
-
+            <img className="miniatureGameImg" src={process.env.PUBLIC_URL+'/assets/backgrounds/Biomutant.jpg'}/>
             </div>
             <div className="rankElementTitle">
             Biomutant
@@ -21,7 +21,7 @@ function rankElement() {
                 20/100
             </div>
             <div className="rankElementForum">
-                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-warning">Wyświetl forum</button>
             </div>
         </div>
     )

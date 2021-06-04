@@ -6,7 +6,7 @@
     text-align: center;
     display: flex;
     height: 10vh;
-    width: 90vw;
+    width: 96vw;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 15px;
@@ -33,7 +33,7 @@
     background-color: rgba(56, 55, 55, 0.857);
     text-align: center;
     display: flex;
-    width: 90vw;
+    width: 96vw;
     margin: auto;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .rankRightContent {
-    flex: 5;
+    flex: 6;
     color: white;
 }
 

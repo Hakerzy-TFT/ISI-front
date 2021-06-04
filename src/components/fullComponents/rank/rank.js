@@ -18,53 +18,36 @@ function rank() {
                 </div>
                 <div className="rankContent">
                     <div className="rankLeftContent">
-                        <table>
-                            <tr>
-                                <td>Sortuj:</td>
-                                <td>
+                        Sortuj:
                                     <div className="rankSelectDiv"><select className="RankSelect" id="rankSort">
-                                        <option value="BestRated">Najwyżej oceniane</option>
-                                        <option value="Newest">Najnowsze</option>
-                                        <option value="Testing">Testowane</option>
-                                    </select></div></td>
-
-                            </tr>
-                            <tr>
-                                <td>Typ:</td>
-                                <td>
+                            <option value="BestRated">Najwyżej oceniane</option>
+                            <option value="Newest">Najnowsze</option>
+                            <option value="Testing">Testowane</option>
+                        </select></div>
+                                Typ:
                                     <div className="rankSelectDiv"><select id="rankSort">
-                                        <option value="BestRated">Najwyżej oceniane</option>
-                                        <option value="Newest">Najnowsze</option>
-                                        <option value="Testing">Testowane</option>
-                                    </select></div></td>
-                            </tr>
-                            <tr>
-                                <td>Rodzaj:</td>
-                                <td>
+                            <option value="BestRated">Najwyżej oceniane</option>
+                            <option value="Newest">Najnowsze</option>
+                            <option value="Testing">Testowane</option>
+                        </select></div>
+                                Rodzaj:
                                     <div className="rankSelectDiv"><select id="rankSort">
-                                        <option value="BestRated">Najwyżej oceniane</option>
-                                        <option value="Newest">Najnowsze</option>
-                                        <option value="Testing">Testowane</option>
-                                    </select></div></td>
-                            </tr>
-                            <tr>
-                                <td>Platformy:</td>
-                                <td><select id="rankSort">
-                                    <option value="BestRated">Najwyżej oceniane</option>
-                                    <option value="Newest">Najnowsze</option>
-                                    <option value="Testing">Testowane</option>
-                                </select></td>
-                            </tr>
-                            <tr>
-                                <td>Dostępność:</td>
-                                <td>
+                            <option value="BestRated">Najwyżej oceniane</option>
+                            <option value="Newest">Najnowsze</option>
+                            <option value="Testing">Testowane</option>
+                        </select></div>
+                                Platformy:
+                                <select id="rankSort">
+                            <option value="BestRated">Najwyżej oceniane</option>
+                            <option value="Newest">Najnowsze</option>
+                            <option value="Testing">Testowane</option>
+                        </select>
+                                Dostępność:
                                     <div className="rankSelectDiv"><select id="rankSort">
-                                        <option value="BestRated">Najwyżej oceniane</option>
-                                        <option value="Newest">Najnowsze</option>
-                                        <option value="Testing">Testowane</option>
-                                    </select></div></td>
-                            </tr>
-                        </table>
+                            <option value="BestRated">Najwyżej oceniane</option>
+                            <option value="Newest">Najnowsze</option>
+                            <option value="Testing">Testowane</option>
+                        </select></div>
                     </div>
 
                     <div className="rankRightContent">
