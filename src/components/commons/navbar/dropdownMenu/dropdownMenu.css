@@ -1,4 +1,5 @@
 .dropdownMenu {
+    z-index:1;
     display: none;
     float: right;
     width: 24.5vw;

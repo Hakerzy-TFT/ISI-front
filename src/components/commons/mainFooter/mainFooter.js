@@ -5,7 +5,7 @@ function mainFooter() {
     return (
         <footer>
             <div className="mainFooter">
-                <img src={process.env.PUBLIC_URL + '/favicon_with_txt.png'} className="favIcon" />
+                <img src={process.env.PUBLIC_URL + '/favicon_with_txt.png'} className="favIcon" alt="IMG NOT LOADED" />
                 <br />
                 <div className="onePointThreeTab">
                     <div className="onePointThreeColumn">

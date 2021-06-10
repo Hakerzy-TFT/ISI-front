@@ -14,7 +14,7 @@ function accountInfo() {
             <Navbar />
             <div className="accountInfoContent">
                 <div className="accountInfoLeftContent">
-                    <i class="fas fa-wheelchair fa-3x"></i>
+                    <i className="fas fa-wheelchair fa-3x"></i>
                     <div className="accountInfoInfos">
                         <div className="userPanelLevel">
                             {localStorage["username"]}<br />

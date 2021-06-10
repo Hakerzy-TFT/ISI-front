@@ -2,7 +2,7 @@
     background-color:grey;
     width:100%;
     font-size:20px;
-    height:14vh;
+    min-height:16vh;
 }
 .onePointThreeTab{
     display: table;

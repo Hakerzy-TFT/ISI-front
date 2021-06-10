@@ -1,16 +1,13 @@
-import React from 'react';
-import { useState } from 'react';
+import React,{useEffect} from 'react';
 import { useHistory } from "react-router-dom";
 import './login.css';
 import {
-    Link,
-    withRouter
+    Link
 } from 'react-router-dom';
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { useCookies } from 'react-cookie';
 import jwt_decode from "jwt-decode";
-
 
 class daneLogowania {
     constructor(userMail, password, role) {
@@ -22,7 +19,7 @@ class daneLogowania {
 
 
 function LoginAndRegister() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const [cookies, setCookie] = useCookies(['access_token']);
     const history = useHistory();
     function handleClick() {
@@ -62,7 +59,6 @@ function LoginAndRegister() {
         }, 5000);
 
     };
-
     return (
         <div className="loginAndRegister">
             <div className="loginImage" />
@@ -91,11 +87,12 @@ function LoginAndRegister() {
                         }
                     </form>
                     <div id="data-container" data-value=""></div>
+                    <div id="my-signin2" className="googleLogin"></div>
                 </div>
                 <div className="loginButtons">
                     <Link to="/register"><button className="btn btn-dark loginbutton" > Przejdź do rejestracji </button></Link>
                     <br />
-                    <Link to="/"><i class="fas fa-home fa-4x"></i></Link>
+                    <Link to="/"><i className="fas fa-home fa-4x"></i></Link>
                 </div>
             </div>
         </div>

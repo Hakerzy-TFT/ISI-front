@@ -1,3 +1,71 @@
 .topUpCoinsBody {
-    min-height: 77vh;
+    min-height: 72vh;
+}
+
+.topUpCoinsContent {
+    margin-left: 50px;
+    margin-top: 20px;
+    color: rgb(145, 42, 98);
+    font-size: 20px;
+}
+
+.topUpCoinsPayment {
+    min-height:55vh;
+    width: 90vw;
+    margin: auto;
+    background-color: grey;
+    display: flex;
+}
+.goldCoins{
+    margin:auto;
+    flex: 1;
+    color: gold;
+    width:12%;
+    margin:0;
+    padding:0;
+    float:left;
+    height:50px;
+    font-size:25px;
+}
+.goldValue{
+    margin:auto;
+    text-align:right;
+    float:left;
+    flex: 1;
+    width:88%;
+    height:50px;
+    font-size:25px;
+}
+.moneyValue{
+    margin:auto;
+    flex: 1;
+    width:18%;
+    margin:0;
+    padding:0;
+    float:left;
+    font-size:25px;
+    height:50px;
+}
+.moneyButton{
+    text-align:left;
+    float:left;
+    flex: 1;
+    width:82%;
+    height:50px;
+}
+
+.btn-circle.btn-xl {
+    width: 225px;
+    height: 225px;
+    padding: 30px 48px;
+    margin:20px 15px 0px 15px;
+    border-radius: 105px;
+    font-size: 14px;
+    text-align: center;
+}
+.topUpCoinsSummary{
+    text-align:center;
+}
+.container{
+    overflow:hidden;
 }

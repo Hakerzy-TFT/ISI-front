@@ -19,7 +19,7 @@ class dane {
 
 
 function Register() {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         var dataContainer = document.getElementById('data-container');
         let daanee = new dane(data.email, data.name, data.surname, data.dateOfBirth, data.password, '1');
@@ -111,7 +111,7 @@ function Register() {
                 <div className="loginButtons">
                     <Link to="/login"><button className="btn btn-dark loginbutton" > Przejdź do logowania </button></Link>
                     <br />
-                    <Link to="/"><i class="fas fa-home fa-4x"></i></Link>
+                    <Link to="/"><i className="fas fa-home fa-4x"></i></Link>
                 </div>
             </div>
             <div className="registerImage"></div>

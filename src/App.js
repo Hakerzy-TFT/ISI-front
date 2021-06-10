@@ -13,12 +13,11 @@ import LegalInfo from './components/fullComponents/legalInfo/legalInfo';
 import UserPanel from './components/fullComponents/panel/userPanel/userPanel';
 import AccountInfo from './components/fullComponents/panel/accountInfo/accountInfo';
 import TopUpCoins from './components/fullComponents/topUpCoins/topUpCoins';
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 function App() {

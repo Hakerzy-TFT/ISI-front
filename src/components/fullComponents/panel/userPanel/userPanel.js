@@ -15,7 +15,7 @@ function UserPanel() {
             <Navbar />
             <div className="userPanelContent">
                 <div className="userPanelLeftContent">
-                    <i class="fas fa-wheelchair fa-3x"></i>
+                    <i className="fas fa-wheelchair fa-3x"></i>
                     <div className="userPanelInfos">
 
                         <div className="userPanelLevel">
