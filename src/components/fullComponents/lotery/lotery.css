@@ -1,0 +1,17 @@
+.loteryBody{
+    min-height:75vh;
+    background-image: url(desert.jpg);
+    background-size:cover;
+    repeat:no-repeat;
+}
+.loteryHeader{
+    font-size:30px;
+    text-align:center;
+    color:black;
+}
+.loteryContent{
+    margin-top:40px;
+    font-size:24px;
+    text-align:center;
+    color:black;
+}

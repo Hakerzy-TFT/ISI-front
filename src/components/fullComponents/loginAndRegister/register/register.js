@@ -7,7 +7,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 
 class dane {
-    constructor(email, name, surname, dateOfBirth, password, userTypeId) {
+    constructor(username,email, name, surname, dateOfBirth, password, userTypeId) {
+        this.username=username;
         this.email = email;
         this.name = name;
         this.surname = surname;
@@ -22,9 +23,9 @@ function Register() {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = (data) => {
         var dataContainer = document.getElementById('data-container');
-        let daanee = new dane(data.email, data.name, data.surname, data.dateOfBirth, data.password, '1');
+        let daanee = new dane(data.username,data.email, data.name, data.surname, data.dateOfBirth, data.password, '1');
         console.log(data);
-        axios.post('https://localhost:5001/api/users', daanee, {
+        axios.post('http://localhost:5001/api/users', daanee, {
             headers: {
                 'Content-Type': 'text/json'
             }
@@ -60,11 +61,17 @@ function Register() {
                     
                         <label htmlFor="email">Email:</label>
                         <input {...register("email", {
-                            required: 'Hasło jest wymagane', pattern: {
+                            required: 'Email jest wymagany', pattern: {
                                 value: /[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]/,
                                 message: 'Błędny adres email'
                             }
                         })} />
+                        <br />
+                        <label htmlFor="username">Login:</label>
+                        <input {...register("username", { required: 'Login jest wymagany', pattern: {
+                                value: /[A-Za-z0-9]/,
+                                message: 'Błędny login'
+                            } })} />
                         <br />
                         <label htmlFor="name">Imię:</label>
                         <input {...register("name", { required: 'Imię jest wymagane' })} />

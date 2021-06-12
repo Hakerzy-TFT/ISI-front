@@ -1,0 +1,8 @@
+.studioNavbar {
+    display: flex;
+    background-color: rgb(70, 70, 70);
+    color: rgb(238, 231, 129);
+    font-size: 20px;
+    justify-content: space-between;
+    min-height: 6vh;
+}

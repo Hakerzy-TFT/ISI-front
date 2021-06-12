@@ -8,12 +8,17 @@ import {
     Link
 } from 'react-router-dom';
 
+import { useCookies } from 'react-cookie';
+
 
 function UserPanel() {
+
+    const [cookies, setCookie] = useCookies(['access_token','loged']);
+
     return (
         <div className="userPanel">
             <Navbar />
-            <div className="userPanelContent">
+            {cookies.loged==='1'&&<div className="userPanelContent">
                 <div className="userPanelLeftContent">
                     <i className="fas fa-wheelchair fa-3x"></i>
                     <div className="userPanelInfos">
@@ -45,7 +50,7 @@ function UserPanel() {
                         <Activities />
                     </div>
                 </div>
-            </div>
+            </div>}
             <MainFooter />
         </div >
     )
