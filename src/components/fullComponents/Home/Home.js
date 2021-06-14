@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navbar from '../../../components/commons/navbar/Navbar';
 import MainGameCarousel from './mainGameCarousel/mainGameCarousel';
 import DayCategory from './dayCategory/dayCategory';

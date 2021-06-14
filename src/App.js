@@ -12,12 +12,15 @@ import Support from './components/fullComponents/support/support';
 import LegalInfo from './components/fullComponents/legalInfo/legalInfo';
 import UserPanel from './components/fullComponents/panel/userPanel/userPanel';
 import AccountInfo from './components/fullComponents/panel/accountInfo/accountInfo';
-import React, { Component } from 'react';
+import TopUpCoins from './components/fullComponents/topUpCoins/topUpCoins';
+import Studio from './components/fullComponents/studio/studio';
+import Game from './components/fullComponents/game/Game.js';
+import Lotery from './components/fullComponents/lotery/Lotery';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from 'react-router-dom';
 
 function App() {
@@ -40,6 +43,10 @@ function App() {
           <Route path="/legalInfo" component={LegalInfo} />
           <Route path="/userPanel" component={UserPanel} />
           <Route path="/accountInfo" component={AccountInfo} />
+          <Route path="/topUpCoins" component={TopUpCoins} />
+          <Route path="/studio" component={Studio} />
+          <Route path="/game" component={Game} />
+          <Route path="/lotery" component={Lotery} />
         </Switch>
 
       </Router>

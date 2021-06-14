@@ -7,7 +7,7 @@ function contact() {
         <div className="contact">
             <Navbar />
             <div className="contactContent">
-                <i class="fas fa-copyright"></i> Wszelkie prawa zastrzeżone
+                <i className="fas fa-copyright"></i> Wszelkie prawa zastrzeżone
             <br />
                 <a href="https://github.com/Hakerzy-TFT">Zajrzyj na github</a>
                 <br />

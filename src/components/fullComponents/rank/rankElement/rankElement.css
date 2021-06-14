@@ -1,37 +1,45 @@
 .rankElement {
     display: flex;
-    background-color: rgb(123, 111, 111);
+    background-color: rgb(90, 129, 206);
     margin:auto;
     margin-top:5px;
+    margin-bottom:5px;
     width:95%;
     height:20vh;
 }
 
 .rankElementNumber {
+    margin:auto;
     flex: 1;
 }
 
 .rankElementView {
     flex: 4; 
-    background-image: url("Biomutant.jpg");
     background-size: cover;
 }
 
 .rankElementTitle {
+    margin:auto;
     flex: 2;
 }
 
 .rankElementPlatforms {
+    margin:auto;
     flex: 2;
 }
 
 .rankElementKeys {
+    margin:auto;
     flex: 2;
 }
 
 .rankElementForum {
-    flex: 2;
+    margin:auto;
+    flex: 3;
 }
 .fa-xbox{
     padding-right:10px;
+}
+.rankElementImg{
+    height:20vh;
 }

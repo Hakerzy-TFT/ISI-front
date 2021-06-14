@@ -1,0 +1,45 @@
+.studioBody{
+    min-height:75vh;
+}
+.studioContent{
+    min-height:69vh;
+    display:flex;
+}
+.studioContentLeft{
+    flex:1;
+    padding-top:50px;
+    margin-left:50px;
+    font-size:20px;
+}
+.studioContentRight{
+    flex:1;
+    color:black;
+    font-size:30px;
+    margin-top:10vh;
+}
+.mainStudioImg{
+    height:25vh;
+}
+.studioRight{
+    float:right;
+    margin-right:30px;
+    margin-bottom:20px;
+}
+.smallStudioImage{
+    width:250px;
+    margin:auto;
+}
+.smallStudioImageContener{
+    padding-top:20px;
+    display:flex;
+    width:50vw;
+}
+.smallStudioLeftImage{
+    flex:1;
+    
+    
+}
+.smallStudioRightImage{
+    flex:1;
+
+}

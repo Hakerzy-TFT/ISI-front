@@ -6,7 +6,7 @@ function activities() {
         <div className="activities">
             <div className="activitiesHeader">
                 <div className="activitiesIco">
-                    <i class="fas fa-wheelchair fa-3x"></i>
+                    <i className="fas fa-wheelchair fa-3x"></i>
                 </div>
                 <div className="activitiesUserDescription">
                     Zgłoszono błąd

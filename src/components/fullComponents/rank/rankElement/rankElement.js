@@ -1,30 +1,33 @@
 import React from 'react';
 import './rankElement.css';
 
-function rankElement() {
+
+
+function RankElement(props) {
     return (
         <div className="rankElement">
             <div className="rankElementNumber">
-                1
+                {props.id}
             </div>
             <div className="rankElementView">
-
+            <img className="rankElementImg" src={props.imgSrc} alt="IMG NOT LOADED"/ >
             </div>
             <div className="rankElementTitle">
-            Biomutant
+            {props.title}
             </div>
             <div className="rankElementPlatforms">
-            <i class="fab fa-xbox fa-3x"></i>
-            <i class="fab fa-steam fa-3x"></i>
+            {props.platform==="XBOX"&&<i className="fab fa-xbox fa-3x"></i>}
+            {props.platform==="PC"&&<i className="fas fa-desktop fa-3x"></i>}
+            {props.platform==="PS"&&<i className="fab fa-playstation fa-3x"></i>}
             </div>
             <div className="rankElementKeys">
-                20/100
+            {props.rating}/10
             </div>
             <div className="rankElementForum">
-                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" className="btn btn-warning">Wyświetl forum</button>
             </div>
         </div>
     )
 }
 
-export default rankElement
+export default RankElement
