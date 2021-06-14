@@ -1,50 +1,82 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './game.css';
 import Navbar from '../../commons/navbar/Navbar';
 import MainFooter from '../../commons/mainFooter/mainFooter';
 import {
-    Link,useLocation
+    Link, useLocation
 } from 'react-router-dom';
+import Review from '../review/Review';
+import axios from 'axios';
+class gameElement {
+    constructor(id, description, releaseDate, postedDate, totalRating, imgSrc, studio) {
+        this.id = id;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.postedDate = postedDate;
+        this.totalRating = totalRating;
+        this.imgSrc = imgSrc;
+        this.img1Src = "/assets/dayCategory/gta.jpg";
+        this.header = "header";
+        this.fontColor = "black";
+        this.buttonColor = "green";
+        this.backgroundColor = "#d24dff";
+        this.studio = studio;
+    }
+}
+
 function Game() {
     const location = useLocation();
-    const title = location.state?.title;
-    const description = "description";
-    const relaseDate = "relaseDate";
-    const postedDate = "postedDate";
-    const totalRating = "8.5";
-    const imgSrc = "/assets/backgrounds/Biomutant.jpg";
-    const img1Src = "/assets/dayCategory/gta.jpg";
-    const header = "header";
-    const fontColor = "white";
-    const buttonColor = "green";
-    const backgroundColor = "#d24dff";
-    const studio="studio";
+    const gameId = location.state?.gameId;
+
+    const [gameob, setGameob] = useState(null);
+    useEffect(() => {
+        axios.get(`http://localhost:5001/api/Games/`+gameId, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            console.log(response.data);
+            setGameob(new gameElement(response.data.id, response.data.description, response.data.releaseDate, response.data.postedDate, response.data.totalRating, response.data.imgSrc,response.data.studio));
+        }
+        );
+    }, []);
+
+
     return (
         <div className="game">
             <Navbar />
-            <div className="gameBody" style={{ backgroundImage: `url(${imgSrc})`, backgroundSize: "cover", color: fontColor }}>
+            {gameob ?  
+                <div className="gameBody" style={{ backgroundImage: gameob.imgSrc, backgroundSize: "cover", color: gameob.fontColor }}>
                 <div className="gameHeader" >
                     <div className="gameHeaderLeft">
-                        {title}
+                        {gameob.title}
                     </div>
                     <div className="gameHeaderRight">
-                        {totalRating}/10
+                        {gameob.totalRating}/10
                     </div>
 
                 </div>
                 <div className="gameDate">
-                    {header}<br />
-                    Stworzono w {relaseDate}, na naszej stronie od {postedDate}<br />
-                    Wyprodukowano przez {studio}<br />
+                    {gameob.header}<br />
+                    Stworzono w {Date(gameob.releaseDate.replace(/-/g,"/"))}, na naszej stronie od {Date(gameob.postedDate.replace(/-/g,"/"))}<br />
+                    Wyprodukowano przez {gameob.studio}<br />
 
-                    <span className="gameImg"><img src={img1Src} className="center" alt="IMG NOT LOADED"></img></span><br />
-                    {description}<br />
+                    <span className="gameImg"><img src={gameob.img1Src} className="center" alt="IMG NOT LOADED"></img></span><br />
+                    {gameob.description}<br />
                     <Link to={{
                         pathname: "/lotery",
-                        state: { title: title },
-                    }} ><button type="button" class="btn btn-primary center" style={{ backgroundColor: buttonColor }}>Weź udział w loterii kluczy</button></Link>
+                        state: { title: gameob.title },
+                    }} ><button type="button" className="btn btn-primary center" style={{ backgroundColor: gameob.buttonColor }}>Weź udział w loterii kluczy</button></Link>
                 </div>
+                <br/>
+                <Review gameId={gameId}/>
             </div>
+                
+                
+                
+                : <h1>Ładowanie</h1>}
+
+            
             <MainFooter />
         </div>
     )

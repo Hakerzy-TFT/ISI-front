@@ -1,14 +1,16 @@
-import React from 'react'
-import './miniatureGame.css'
+import React from 'react';
+import './miniatureGame.css';
 
-function miniatureGame() {
+function miniatureGame(props) {
+
     return (
         <div className="miniatureGame">
             <div className="miniatureGameImgDiv">
-            <img className="miniatureGameImg" src={process.env.PUBLIC_URL+'/assets/miniatureGame/assasin.jpg'} alt="IMG NOT LOADED"/>
+            <img className="miniatureGameImg" src={props.imgSrc} alt="IMG NOT LOADED"/>
             </div>
             <div className="miniatureGameTextDiv">
-            Lorem ipsum dolor sit amet, consectetur adip
+            {props.title}<br/>
+            {props.description}
             </div>
         </div>
     )

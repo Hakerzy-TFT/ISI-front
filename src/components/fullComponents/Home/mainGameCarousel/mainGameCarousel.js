@@ -13,7 +13,7 @@ function mainGameCarousel() {
                 <div className="mainGameCarouselText">{title}</div>
                 <Link to={{
                     pathname: "/game",
-                    state: { title: title },
+                    state: { gameId:1 },
                 }} ><button className="more btn btn-warning">DOWIEDZ SIĘ WIĘCEJ</button></Link>
                 <Link to={{
                     pathname: "/lotery",

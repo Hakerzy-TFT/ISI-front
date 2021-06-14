@@ -1,0 +1,25 @@
+.Review{
+    width:90vw;
+    background-color:rgb(82, 126, 189);
+}
+.ReviewNew{
+    text-align:center;
+    padding-left:10vw;
+}
+.ReviewInput{
+    width:70vw;
+    height:20vh;
+}
+.ReviewUser{
+    flex:1;
+}
+.ReviewComment{
+    flex:6;
+}
+.ReviewRating{
+    flex:1;
+    float:right;
+}
+.ReviewOld{
+    display:flex;
+}

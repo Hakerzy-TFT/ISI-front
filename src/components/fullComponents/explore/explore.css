@@ -1,3 +1,6 @@
 .miniatureContentInExplore{
     margin-top:10px;
 }
+.exploreContent{
+    min-height:75vh;
+}
