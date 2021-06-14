@@ -8,7 +8,7 @@ import {
 import Review from '../review/Review';
 import axios from 'axios';
 class gameElement {
-    constructor(id, description, releaseDate, postedDate, totalRating, imgSrc, studio) {
+    constructor(id, description, releaseDate, postedDate, totalRating, imgSrc, header,studio) {
         this.id = id;
         this.description = description;
         this.releaseDate = releaseDate;
@@ -16,7 +16,7 @@ class gameElement {
         this.totalRating = totalRating;
         this.imgSrc = imgSrc;
         this.img1Src = "/assets/dayCategory/gta.jpg";
-        this.header = "header";
+        this.header = header;
         this.fontColor = "black";
         this.buttonColor = "green";
         this.backgroundColor = "#d24dff";
@@ -36,7 +36,7 @@ function Game() {
             }
         }).then(response => {
             console.log(response.data);
-            setGameob(new gameElement(response.data.id, response.data.description, response.data.releaseDate, response.data.postedDate, response.data.totalRating, response.data.imgSrc,response.data.studio));
+            setGameob(new gameElement(response.data.id, response.data.description, response.data.releaseDate, response.data.postedDate, response.data.totalRating, response.data.imgSrc,response.data.header,response.data.studioName));
         }
         );
     }, []);

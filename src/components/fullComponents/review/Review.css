@@ -4,11 +4,12 @@
 }
 .ReviewNew{
     text-align:center;
-    padding-left:10vw;
 }
 .ReviewInput{
     width:70vw;
     height:20vh;
+    word-wrap: break-word;
+        word-break: break-all;
 }
 .ReviewUser{
     flex:1;

@@ -40,7 +40,6 @@ function LoginAndRegister() {
                 expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
                 setCookie('access_token', response.data, { path: '/', expires });
                 setCookie('loged','1',{ path: '/' });
-                console.log(cookies.loged);
                 handleClick();
             }
             console.log(check);

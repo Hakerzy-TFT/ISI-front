@@ -60,7 +60,7 @@ function Rank() {
         }).then(response => {
             var keys = Object.keys(response.data);
             keys.forEach(key => {
-                rankobject.push(new rankingElement(key, response.data[key].id, response.data[key].imgSrc, response.data[key].title, response.data[key].platform, response.data[key].totalRating));
+                rankobject.push(new rankingElement(key, response.data[key].id, response.data[key].imgSrc, response.data[key].title, response.data[key].platform, response.data[key].total_rating));
             });
             setrankob(rankobject);
         }

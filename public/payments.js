@@ -4,6 +4,7 @@
  *
  * @see {@link https://developers.google.com/pay/api/web/reference/request-objects#PaymentDataRequest|apiVersion in PaymentDataRequest}
  */
+
 const baseRequest = {
   apiVersion: 2,
   apiVersionMinor: 0
@@ -90,11 +91,11 @@ let paymentsClient = null;
  */
 function getGoogleIsReadyToPayRequest() {
   return Object.assign(
-      {},
-      baseRequest,
-      {
-        allowedPaymentMethods: [baseCardPaymentMethod]
-      }
+    {},
+    baseRequest,
+    {
+      allowedPaymentMethods: [baseCardPaymentMethod]
+    }
   );
 }
 
@@ -124,9 +125,9 @@ function getGooglePaymentDataRequest() {
  * @returns {google.payments.api.PaymentsClient} Google Pay API client
  */
 function getGooglePaymentsClient() {
-  if ( paymentsClient === null ) {
+  if (paymentsClient === null) {
     paymentsClient = new google.payments.api.PaymentsClient({
-        environment: 'TEST'
+      environment: 'TEST'
     });
   }
   return paymentsClient;
@@ -140,18 +141,20 @@ function getGooglePaymentsClient() {
  * ability to pay.
  */
 function onGooglePayLoaded() {
- setTimeout(function(){const paymentsClient = getGooglePaymentsClient();
+  setTimeout(function () {
+    const paymentsClient = getGooglePaymentsClient();
     paymentsClient.isReadyToPay(getGoogleIsReadyToPayRequest())
-      .then(function(response) {
+      .then(function (response) {
         if (response.result) {
           addGooglePayButton();
         }
       })
-      .catch(function(err) {
+      .catch(function (err) {
         // show error in developer console for debugging
         console.error(err);
-      });},20)
-    
+      });
+  }, 20);
+
 }
 
 /**
@@ -163,7 +166,7 @@ function onGooglePayLoaded() {
 function addGooglePayButton() {
   const paymentsClient = getGooglePaymentsClient();
   const button =
-      paymentsClient.createButton({onClick: onGooglePaymentButtonClicked});
+    paymentsClient.createButton({ onClick: onGooglePaymentButtonClicked });
   document.getElementById('container').appendChild(button);
 }
 
@@ -187,25 +190,23 @@ function getGoogleTransactionInfo() {
 /**
  * Show Google Pay payment sheet when Google Pay payment button is clicked
  */
- function onGooglePaymentButtonClicked() {
-      const paymentDataRequest = getGooglePaymentDataRequest();
-      paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
-    console.log(document.getElementById("CoinsMoney").innerHTML);
-    if(document.getElementById("CoinsMoney").innerHTML!=="")
-{
-      paymentDataRequest.transactionInfo.totalPrice=document.getElementById("CoinsMoney").innerHTML;
-    }
-      const paymentsClient = getGooglePaymentsClient();
-      paymentsClient.loadPaymentData(paymentDataRequest)
-          .then(function(paymentData) {
-            // handle the response
-            processPayment(paymentData);
-          })
-          .catch(function(err) {
-            // show error in developer console for debugging
-            console.error(err);
-          });
-    }
+function onGooglePaymentButtonClicked() {
+  const paymentDataRequest = getGooglePaymentDataRequest();
+  paymentDataRequest.transactionInfo = getGoogleTransactionInfo();
+  if (document.getElementById("CoinsMoney").innerHTML !== "") {
+    paymentDataRequest.transactionInfo.totalPrice = document.getElementById("CoinsMoney").innerHTML;
+  }
+  const paymentsClient = getGooglePaymentsClient();
+  paymentsClient.loadPaymentData(paymentDataRequest)
+    .then(function (paymentData) {
+      // handle the response
+      processPayment(paymentData);
+    })
+    .catch(function (err) {
+      // show error in developer console for debugging
+      console.error(err);
+    });
+}
 
 let attempts = 0;
 /**
@@ -214,9 +215,26 @@ let attempts = 0;
  * @param {object} paymentData response from Google Pay API after user approves payment
  * @see {@link https://developers.google.com/pay/api/web/reference/response-objects#PaymentData|PaymentData object reference}
  */
- function processPayment(paymentData) {
-      // show returned data in developer console for debugging
-        console.log(paymentData);
+class userInfo {
+  constructor(username, incrementBalanceBy) {
+    this.username = username;
+    this.incrementBalanceBy = incrementBalanceBy;
+  }
+}
+
+function processPayment(paymentData) {
+  
+  console.log(paymentData);
+  const axios = require('axios');
+  user = new userInfo(document.getElementById("CoinsMoney").innerHTML, document.getElementById("usernameCoins").innerHTML);
+  axios.post('http://localhost:5001/api/Users/Coins', user, {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }).then(response => {
+    console.log(response.data);
+  })
+
       // @todo pass payment token to your gateway to process payment
       paymentToken = paymentData.paymentMethodData.tokenizationData.token;
-    }
+}

@@ -35,7 +35,7 @@ function DropdownMenu() {
     return (
         <div className="dropdownMenu">
             <div className="dropdownMenuHeader">
-            {userin &&<div className="dropdownMenuUsername"><h1>{userin.username}</h1>{userin.usertype} </div>}
+            {userin &&<div className="dropdownMenuUsername"><h1 id="DropDownUserName">{userin.username}</h1>{userin.usertype} </div>}
                 <div className="dropdownMenuIco"> <img className="miniatureGameImg" src={process.env.PUBLIC_URL + '/assets/backgrounds/Biomutant.jpg'} alt="IMG NOT LOADED" />
                 </div>
             </div>
