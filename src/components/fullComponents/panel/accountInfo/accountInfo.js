@@ -49,7 +49,6 @@ function AccountInfo() {
                         'Content-Type': 'application/json'
                     }
                 }).then(response => {
-                    console.log(response)
                     if (response.status == "200") {
                         dataContainer.setAttribute('data-value', "Pseudonim został zmieniony");
                         dataContainer.innerHTML = "Pseudonim został zmieniony";

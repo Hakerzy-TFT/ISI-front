@@ -49,15 +49,12 @@ function Review(props) {
             if (cookies.loged!=="undefined") {
                 var token = cookies.access_token;
                 var decoded = jwt_decode(token);
-                console.log(decoded);
                 var cont= new reviewelement(props.gameId, document.getElementById("quantity").value, document.getElementById("reviewText").value, decoded.userId);
-                console.log(cont);
                 axios.post('http://localhost:5001/api/Reviews', cont, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }).then(response => {
-                    console.log(response)
                     if (response.status == "200") {
                         dataContainer.setAttribute('data-value', "Komentarz został dodany");
                         dataContainer.innerHTML = "Komentarz został dodany";

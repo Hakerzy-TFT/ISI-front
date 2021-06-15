@@ -36,11 +36,9 @@ function Rank() {
             }
         }).then(response => {
             var keys = Object.keys(response.data);
-            console.log(response.data);
             keys.forEach(key => {
                 rankobject.push(new rankingElement(key, response.data[key].id, response.data[key].img_src, response.data[key].title, response.data[key].platform, response.data[key].total_rating));
             });
-            console.log(rankobject);
             setrankob(rankobject);
         }
         );
@@ -64,7 +62,6 @@ function Rank() {
             keys.forEach(key => {
                 rankobject.push(new rankingElement(key, response.data[key].id, response.data[key].imgSrc, response.data[key].title, response.data[key].platform, response.data[key].total_rating));
             });
-            console.log(rankobject);
             setrankob(rankobject);
         }
         ).catch(

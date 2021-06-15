@@ -29,7 +29,6 @@ function Lotery() {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response)
             if (response.status == "200") {
                 dataContainer.setAttribute('data-value', "Klucz został dodany");
                 dataContainer.innerHTML = "Klucz został dodany";

@@ -41,13 +41,11 @@ function LoginAndRegister() {
     const OnSubmit = (data) => {
         let check = '';
         let danee = new daneLogowania(data.email, data.password);
-        console.log(data);
         axios.post('http://localhost:5001/api/Users/login', danee, {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response);
             if (response.status == "200") {
                 let expires = new Date();
                 expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
@@ -58,7 +56,6 @@ function LoginAndRegister() {
                 setCookie('user_or_studio', decoded.userType, { path: '/', expires });
                 handleClick();
             }
-            console.log(check);
 
         }
         );
@@ -81,14 +78,11 @@ function LoginAndRegister() {
         var profile = googleUser.getBasicProfile();
 
         let danee = new daneLogowania(profile.getEmail(), profile.getImageUrl());
-        console.log("11");
         axios.post('http://localhost:5001/api/Users/login', danee, {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response);
-            console.log("1");
             if (response.status == "200") {
                 let expires = new Date();
                 
@@ -108,14 +102,11 @@ function LoginAndRegister() {
                 'Content-Type': 'text/json'
             }
         }).then(response => {
-            console.log(response.data);
-            console.log("here");
             axios.post('http://localhost:5001/api/Users/login', danee, {
             headers: {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response);
             if (response.status == "200") {
                 let expires = new Date();
                 expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
@@ -129,15 +120,6 @@ function LoginAndRegister() {
         })})
         
 });
-
-
-        // This is null if the 'email' scope is not present.
-        let expires = new Date();
-        expires.setTime(expires.getTime() + (7 * 604800000));
-        setCookie('access_token', profile, { path: '/', expires });
-        setCookie('loged', '1', { path: '/' });
-
-        handleClick();
     };
     const onFailure = error => {
         console.log(error);

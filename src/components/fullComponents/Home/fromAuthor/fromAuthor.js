@@ -32,7 +32,6 @@ function FromAuthor() {
                 exploreobject.push(new exploreElement(key, response.data[key].Id, response.data[key].ImgSrc, response.data[key].Title, response.data[key].TotalRating, response.data[key].Description));
             });
             setExploreob(exploreobject);
-            console.log(exploreobject[0]);
         }
         );
     }, []);

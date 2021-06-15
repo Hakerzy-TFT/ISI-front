@@ -40,11 +40,8 @@ function Studio() {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data);
-            
             var cat=new StudioVariable(response.data[0].studio_description,response.data[0].background_color,response.data[0].background_image,response.data[0].button1_url,response.data[0].button2_url,response.data[0].button_color,response.data[0].font_color,response.data[0].header,response.data[0].img1_src,response.data[0].img2_src,response.data[0].img3_src);
             setstudioOb(cat);
-            console.log(cat);
         }
         );
     }, []);

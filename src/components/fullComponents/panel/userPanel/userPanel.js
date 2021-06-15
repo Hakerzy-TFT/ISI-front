@@ -34,12 +34,10 @@ var mainGameObject=[];
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data.Activities);
             var keys = Object.keys(response.data.Activities);
             keys.forEach(key => {
                 mainGameObject.push(new ActivitiesCont(key,response.data.Activities[key].ActivityTitle,response.data.Activities[key].Day,response.data.Activities[key].IssueTitle,response.data.Activities[key].Review,response.data.Activities[key].TargetGame));
             });
-            console.log(mainGameObject);
             setActob(mainGameObject);
         }
         );

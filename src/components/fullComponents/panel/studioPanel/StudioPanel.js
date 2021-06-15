@@ -45,13 +45,11 @@ function StudioPanel() {
     const onSubmit = (data) => {
         var dataContainer = document.getElementById('data-container');
         let daanee = new dane(data.title, data.description, data.releaseDate, data.postedDate, data.gameStudioName, data.platform, data.genre, data.imgSrc, data.statusId, "black", "1", "2", data.gamePageDescription, data.fontColor, data.header, data.img1Src, data.img2Src, data.img3Src, data.backgroundImage, 1);
-        console.log(data);
         axios.post('http://localhost:5001/api/Games', daanee, {
             headers: {
                 'Content-Type': 'text/json'
             }
         }).then(response => {
-            console.log(response)
             if (response.status == "200") {
                 dataContainer.setAttribute('data-value', "Gra dodana");
                 dataContainer.innerHTML = "Gra dodana";

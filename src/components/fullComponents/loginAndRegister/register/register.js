@@ -24,13 +24,11 @@ function Register() {
     const onSubmit = (data) => {
         var dataContainer = document.getElementById('data-container');
         let daanee = new dane(data.username,data.email, data.name, data.surname, data.dateOfBirth, data.password, '1');
-        console.log(data);
         axios.post('http://localhost:5001/api/users', daanee, {
             headers: {
                 'Content-Type': 'text/json'
             }
         }).then(response => {
-            console.log(response)
             if (response.status == "200") {
                 dataContainer.setAttribute('data-value', "Konto zostało utworzone");
                 dataContainer.innerHTML = "Konto zostało utworzone";

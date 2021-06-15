@@ -36,7 +36,6 @@ function Game() {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data);
             var can=new gameElement(response.data.id,response.data.title, response.data.description, response.data.releaseDate, response.data.postedDate, response.data.totalRating, response.data.imgSrc,response.data.img1Src,response.data.header,response.data.fontColor,response.data.studioName);
             setGameob(can);
         }

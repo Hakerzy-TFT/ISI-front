@@ -113,7 +113,6 @@ function TopUpCoins() {
                         onLoadPaymentData={paymentRequest => {
                             console.log("load payment data", paymentRequest);
                             var dane=new UserCooins(username,document.getElementById("CoinsMoney").innerHTML*100);
-                            console.log(dane);
                             axios.post('http://localhost:5001/api/Users/Coins', dane, {
                                 headers: {
                                     'Content-Type': 'application/json'

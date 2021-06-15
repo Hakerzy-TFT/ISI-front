@@ -25,7 +25,6 @@ function DayCategory() {
             keys.forEach(key => {
                 mainGameObject.push(new MainGame(response.data[key].Id,response.data[key].Title,response.data[key].ImgSrc));
             });
-            console.log(mainGameObject);
             setmainGameob(mainGameObject);
         }
         );

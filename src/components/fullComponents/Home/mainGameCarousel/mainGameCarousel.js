@@ -22,7 +22,6 @@ function MainGameCarousel() {
                 'Content-Type': 'applimaingameobion/json'
             }
         }).then(response => {
-            console.log(response.data);
             setmainGameob(new MainGame(response.data[0].Id,response.data[0].Title,response.data[0].ImgSrc));
         }
         );

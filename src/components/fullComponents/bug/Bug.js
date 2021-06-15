@@ -40,13 +40,11 @@ function Bug() {
                 var token = cookies.access_token;
                 var decoded = jwt_decode(token);
                 var cont= new bugElement(document.getElementById("BugTitle").value, document.getElementById("BugReportContent").value, decoded.userId, gameId);
-                console.log(cont);
                 axios.post('http://localhost:5001/api/Bugs', cont, {
                     headers: {
                         'Content-Type': 'application/json'
                     }
                 }).then(response => {
-                    console.log(response)
                     if (response.status == "200") {
                         dataContainer.setAttribute('data-value', "Wpis został dodany");
                         dataContainer.innerHTML = "Wpis został dodany";

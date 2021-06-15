@@ -27,12 +27,10 @@ function Sugested() {
             }
         }).then(response => {
             var keys = Object.keys(response.data);
-            console.log(response.data);
             keys.forEach(key => {
                 sugestedobject.push(new sugestedElement(key, response.data[key].Id, response.data[key].ImgSrc, response.data[key].Title, response.data[key].Img3Src, response.data[key].Header));
             });
             setsugestedob(sugestedobject);
-            console.log(sugestedobject[0]);
         }
         );
     }, []);

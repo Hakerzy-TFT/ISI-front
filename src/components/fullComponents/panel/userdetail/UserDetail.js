@@ -34,7 +34,6 @@ function UserDetail() {
                 'Content-Type': 'application/json'
             }
         }).then(response => {
-            console.log(response.data);
             setUserob(new detailedUser(response.data.username,
                 response.data.email,
                 response.data.name,
