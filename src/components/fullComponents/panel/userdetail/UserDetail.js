@@ -65,7 +65,7 @@ function UserDetail() {
                             Informacje o koncie
                         </div></Link>
                         <div className="userPanelOptions">
-                            Pomoc
+                        <hr/>
                         </div>
                         <Link to="/accountInfo"><div className="userPanelOptions">
                             Ustawienia
