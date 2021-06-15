@@ -1,20 +1,59 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import './dayCategory.css';
+import {
+    Link
+} from 'react-router-dom';
+import axios from 'axios';
 
-function dayCategory() {
+class MainGame{
+    constructor(Id,Title,ImgSrc){
+        this.Id=Id;
+        this.Title=Title;
+        this.ImgSrc=ImgSrc;
+    }}
+function DayCategory() {
+
+    const [maingameob, setmainGameob] = useState();
+    var mainGameObject=[];
+    useEffect(() => {
+        axios.get(`http://localhost:5001/api/Games/Recommended`, {
+            headers: {
+                'Content-Type': 'applimaingameobion/json'
+            }
+        }).then(response => {
+            var keys = Object.keys(response.data);
+            keys.forEach(key => {
+                mainGameObject.push(new MainGame(response.data[key].Id,response.data[key].Title,response.data[key].ImgSrc));
+            });
+            console.log(mainGameObject);
+            setmainGameob(mainGameObject);
+        }
+        );
+    }, []);
+
     return (
         <div className="dayCategory">
             <div className="dayCategoryHeader"><h1>POLECANE GRY</h1></div>
+            {maingameob&&
             <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src={process.env.PUBLIC_URL+'/assets/dayCategory/CODBO.jpg'} className="d-block w-100" alt="1"/>
+                    <Link to={{
+                        pathname: "/game",
+                        state: { gameId: maingameob[0].Id },
+                    }}><img src={maingameob[0].ImgSrc} className="d-block w-100" alt="1"/></Link>
                     </div>
                     <div className="carousel-item">
-                        <img src={process.env.PUBLIC_URL+'/assets/dayCategory/coj.jpg'} className="d-block w-100" alt="2" />
+                    <Link to={{
+                        pathname: "/game",
+                        state: { gameId: maingameob[1].Id },
+                    }}><img src={maingameob[1].ImgSrc} className="d-block w-100" alt="2" /></Link>
                     </div>
                     <div className="carousel-item">
-                        <img src={process.env.PUBLIC_URL+'/assets/dayCategory/gta.jpg'}className="d-block w-100" alt="3" />
+                    <Link to={{
+                        pathname: "/game",
+                        state: { gameId: maingameob[2].Id },
+                    }}><img src={maingameob[2].ImgSrc}className="d-block w-100" alt="3" /></Link>
                     </div>
                 </div>
                 <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
@@ -25,9 +64,9 @@ function dayCategory() {
                     <span className="carousel-control-next-icon" aria-hidden="true"></span>
                     <span className="visually-hidden">Next</span>
                 </button>
-            </div>
+            </div>}
         </div>
     )
 }
 
-export default dayCategory
+export default DayCategory

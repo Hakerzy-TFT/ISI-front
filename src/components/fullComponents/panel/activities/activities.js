@@ -1,7 +1,7 @@
 import React from 'react';
 import './activities.css';
 
-function activities() {
+function activities(props) {
     return (
         <div className="activities">
             <div className="activitiesHeader">
@@ -9,25 +9,24 @@ function activities() {
                     <i className="fas fa-wheelchair fa-3x"></i>
                 </div>
                 <div className="activitiesUserDescription">
-                    Zgłoszono błąd
+                {props.ActivityTitle}
                 <div className="smallLetters">
-                        wtorek 19:00<br />
-                    Kategoria: gameplay
+                <br />
+                    Kategoria: {props.IssueTitle}
                 </div>
                 </div>
                 <div className="activitiesGame">
-                    w grze: DAYS GONE
+                    w grze: {props.TargetGame}
                 </div>
             </div>
             <div className="activitiesContent">
                 <div className="activitiesContentHeader">
-                    Lorem ipsum dolor sit amet, consectetur
+                {props.Review}
                 </div>
                 <div className="activitiesText">
-                    Lorem ipsum dolor sit amet, consecterured et just Lorem ipsum dolor sit amet, consecterured et just Lorem ipsum dolor sit amet, consecterured et just Lorem ipsum dolor sit amet, consecterured et just
+                    Zachęcamy do kolejnych aktywności
                 </div>
                 <div className="activitiesReadMore">
-                    <a href="" className="readMore">Czytaj dalej...</a>
                 </div>
             </div>
         </div>

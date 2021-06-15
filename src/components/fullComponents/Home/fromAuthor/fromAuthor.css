@@ -9,7 +9,8 @@ display:table;
 .fromAuthorOption{
     text-align:center;
     display: table-cell;
-    width:20vw;
+    width:75vw;
+    padding-left:25vw;
 }
 .miniatureContentGame{
     padding-left:5%;

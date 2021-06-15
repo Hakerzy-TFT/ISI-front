@@ -1,31 +1,71 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './sugested.css';
 import Navbar from '../../../components/commons/navbar/Navbar';
 import MainFooter from '../../../components/commons/mainFooter/mainFooter';
-function sugested() {
+import {
+    Link
+} from 'react-router-dom';
+import axios from 'axios';
+class sugestedElement {
+    constructor(Id, gameId, ImgSrc, Title, Img3Src, Header) {
+        this.Id = Id;
+        this.gameId = gameId;
+        this.ImgSrc = ImgSrc;
+        this.Title = Title;
+        this.platform = "PC";
+        this.Img3Src = Img3Src;
+        this.Header = Header;
+    }
+}
+function Sugested() {
+    const [sugestedob, setsugestedob] = useState(null);
+    const sugestedobject = [];
+    useEffect(() => {
+        axios.get('http://localhost:5001/api/Games/Recommended', {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            var keys = Object.keys(response.data);
+            console.log(response.data);
+            keys.forEach(key => {
+                sugestedobject.push(new sugestedElement(key, response.data[key].Id, response.data[key].ImgSrc, response.data[key].Title, response.data[key].Img3Src, response.data[key].Header));
+            });
+            setsugestedob(sugestedobject);
+            console.log(sugestedobject[0]);
+        }
+        );
+    }, []);
+
+
     return (
         <div className="sugested">
             <Navbar />
-            <div className="sugestedImage">
-            <div className="circle">
-                <div className="circleText">Stań się legendą<br></br> postapokalistycznych <br></br> pustkowi</div>
-                <div className="secCircleText">DOWIEDZ SIĘ WIĘCEJ NA<br></br>gamespace.com/thelastofuspart2
-                <br></br>
-                <br></br>
-                <a className="watchTrailer" href="#example">Obejrzyj trailer</a>
+            {sugestedob &&
+            <div><div className="sugestedImage" style={{ backgroundImage: `url(${sugestedob[0].ImgSrc})`}}>
+                <div className="circle">
+                    <div className="circleText"><br/>{sugestedob[0].Header}</div>
+                    <div className="secCircleText">DOWIEDZ SIĘ WIĘCEJ NA<br></br>gamespace.com
+                        <br></br>
+                        <br></br>
+                        <a className="watchTrailer" href="#example">Obejrzyj trailer</a>
+                    </div>
                 </div>
-                </div>
-                <button className="findOut btn btn-warning">DOWIEDZ SIĘ WIĘCEJ</button>
+                <Link to={{
+                        pathname: "/game",
+                        state: { gameId: sugestedob[0].gameId },
+                    }}><button className="findOut btn btn-warning">DOWIEDZ SIĘ WIĘCEJ</button></Link>
             </div>
             <div className="sugestedContent">
-                <div className="title" id="example">THE LAST OF US<br></br>PART II</div>
+                <div className="title" id="example">{sugestedob[0].Title}<br></br></div>
             </div>
             <div className="trailerContent">
-            <iframe className="trailerVideo" width="50%" height="90%" src="https://www.youtube.com/embed/qPNiIeKMHyg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe className="trailerVideo" width="50%" height="90%" src={sugestedob[0].Img3Src} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
+            </div>}
             <MainFooter />
         </div>
     )
 }
 
-export default sugested
+export default Sugested

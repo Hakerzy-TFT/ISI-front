@@ -17,11 +17,22 @@ class daneLogowania {
     }
 }
 
+class dane {
+    constructor(username, email, name, surname, dateOfBirth, password, userTypeId) {
+        this.username = username;
+        this.email = email;
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.password = password;
+        this.userTypeId = userTypeId;
+    }
+}
 
 function LoginAndRegister() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [cookies, setCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
+    const [cookies, setCookie] = useCookies(['access_token', 'loged', 'currentUserName', 'user_or_studio']);
     const history = useHistory();
     function handleClick() {
         history.push("/");
@@ -43,7 +54,7 @@ function LoginAndRegister() {
                 var decoded = jwt_decode(response.data);
                 setCookie('access_token', response.data, { path: '/', expires });
                 setCookie('loged', '1', { path: '/', expires });
-                setCookie('currentUserName',decoded.given_name, { path: '/', expires })
+                setCookie('currentUserName', decoded.given_name, { path: '/', expires })
                 setCookie('user_or_studio', decoded.userType, { path: '/', expires });
                 handleClick();
             }
@@ -68,15 +79,64 @@ function LoginAndRegister() {
 
     const onSuccess = googleUser => {
         var profile = googleUser.getBasicProfile();
-        console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-        console.log('Name: ' + profile.getName());
-        console.log('Image URL: ' + profile.getImageUrl());
-        console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+
+        let danee = new daneLogowania(profile.getEmail(), profile.getImageUrl());
+        console.log("11");
+        axios.post('http://localhost:5001/api/Users/login', danee, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            console.log(response);
+            console.log("1");
+            if (response.status == "200") {
+                let expires = new Date();
+                
+                expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
+                var decoded = jwt_decode(response.data);
+                setCookie('access_token', response.data, { path: '/', expires });
+                setCookie('loged', '1', { path: '/', expires });
+                setCookie('currentUserName', decoded.given_name, { path: '/', expires })
+                setCookie('user_or_studio', decoded.userType, { path: '/', expires });
+                handleClick();
+            }
+        }).catch(function(error){
+            console.log(error.response.data);
+            let daanee = new dane(profile.getName(), profile.getEmail(), profile.getGivenName(), profile.getFamilyName(), new Date(), profile.getImageUrl(), '1');
+        axios.post('http://localhost:5001/api/users', daanee, {
+            headers: {
+                'Content-Type': 'text/json'
+            }
+        }).then(response => {
+            console.log(response.data);
+            console.log("here");
+            axios.post('http://localhost:5001/api/Users/login', danee, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            console.log(response);
+            if (response.status == "200") {
+                let expires = new Date();
+                expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
+                var decoded = jwt_decode(response.data);
+                setCookie('access_token', response.data, { path: '/', expires });
+                setCookie('loged', '1', { path: '/', expires });
+                setCookie('currentUserName', decoded.given_name, { path: '/', expires })
+                setCookie('user_or_studio', decoded.userType, { path: '/', expires });
+                handleClick();
+            }
+        })})
+        
+});
+
+
+        // This is null if the 'email' scope is not present.
         let expires = new Date();
         expires.setTime(expires.getTime() + (7 * 604800000));
         setCookie('access_token', profile, { path: '/', expires });
         setCookie('loged', '1', { path: '/' });
-        console.log(cookies.loged);
+
         handleClick();
     };
     const onFailure = error => {

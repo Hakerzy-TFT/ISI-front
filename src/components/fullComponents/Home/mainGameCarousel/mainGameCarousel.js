@@ -1,26 +1,51 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import './mainGameCarousel.css';
 import {
     Link
 } from 'react-router-dom';
+import axios from 'axios';
 
-function mainGameCarousel() {
-    const title = "Assasin's Creed";
+class MainGame{
+    constructor(Id,Title,ImgSrc){
+        this.Id=Id;
+        this.Title=Title;
+        this.ImgSrc=ImgSrc;
+    }
+}
+
+function MainGameCarousel() {
+    
+    const [maingameob, setmainGameob] = useState();
+    useEffect(() => {
+        axios.get(`http://localhost:5001/api/Games/Recommended`, {
+            headers: {
+                'Content-Type': 'applimaingameobion/json'
+            }
+        }).then(response => {
+            console.log(response.data);
+            setmainGameob(new MainGame(response.data[0].Id,response.data[0].Title,response.data[0].ImgSrc));
+        }
+        );
+    }, []);
+
+
     return (
         <div className="mainGameCarousel">
-            <img className="cardImage" src={process.env.PUBLIC_URL + '/assets/mainGameCarousel/assasin.jfif'} alt="IMG NOT LOADED" />
+            {maingameob&&<div>
+            <img className="cardImage" src={maingameob.ImgSrc} alt="IMG NOT LOADED" />
             <div className="dataCarousel">
-                <div className="mainGameCarouselText">{title}</div>
+                <div className="mainGameCarouselText">{maingameob.Title}</div>
                 <Link to={{
                     pathname: "/game",
-                    state: { gameId:1 },
+                    state: { gameId:maingameob.Id },
                 }} ><button className="more btn btn-warning">DOWIEDZ SIĘ WIĘCEJ</button></Link>
                 <Link to={{
                     pathname: "/lotery",
-                    state: { title: title },
+                    state: { gameName: maingameob.Title },
                 }} ><button className="tests btn btn-warning">TESTY WSTĘPNE</button></Link>
         </div>
+        </div>}
         </div >
     )
 }
-export default mainGameCarousel
+export default MainGameCarousel
