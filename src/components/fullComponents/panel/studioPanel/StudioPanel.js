@@ -1,21 +1,17 @@
-import React, { Component,useEffect } from 'react';
-import './userPanel.css';
+import React from 'react';
+import './studioPanel.css';
 import Navbar from '../../../commons/navbar/Navbar';
 import MainFooter from '../../../commons/mainFooter/mainFooter';
-import Activities from '../activities/activities';
-import { ShowForPermission } from '../../../ShowForPermissions';
 import {
     Link
 } from 'react-router-dom';
 import jwt_decode from "jwt-decode";
 import { useCookies } from 'react-cookie';
 
-
-function UserPanel() {
+function StudioPanel() {
     const [cookies, setCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
     var token = cookies.access_token;
-    var decoded = jwt_decode(token);
-    var username=decoded.given_name;
+    
     return (
         <div className="userPanel">
             <Navbar />
@@ -25,7 +21,7 @@ function UserPanel() {
                     <div className="userPanelInfos">
 
                         <div className="userPanelLevel">
-                            {username}<br />
+                            {cookies.currentUserName}<br />
                             14<br />
                         Poziom społeczności
                         </div>
@@ -44,11 +40,6 @@ function UserPanel() {
                     PRZEGLĄD AKTYWNOŚCI:
                     <div className="userPanelActivities">
 
-                        <Activities />
-                        <Activities />
-                        <Activities />
-                        <Activities />
-                        <Activities />
                     </div>
                 </div>
             </div>}
@@ -57,4 +48,4 @@ function UserPanel() {
     )
 }
 
-export default UserPanel
+export default StudioPanel

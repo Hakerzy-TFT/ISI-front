@@ -8,6 +8,7 @@ function RankElement(props) {
         <div className="rankElement">
             <div className="rankElementNumber">
                 {props.id}
+                
             </div>
             <div className="rankElementView">
             <img className="rankElementImg" src={props.imgSrc} alt="IMG NOT LOADED"/ >

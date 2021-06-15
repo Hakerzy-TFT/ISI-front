@@ -7,6 +7,7 @@ import {
 import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { useCookies } from 'react-cookie';
+import jwt_decode from "jwt-decode";
 
 class daneLogowania {
     constructor(userMail, password, role) {
@@ -18,8 +19,9 @@ class daneLogowania {
 
 
 function LoginAndRegister() {
+
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [cookies, setCookie] = useCookies(['access_token','loged']);
+    const [cookies, setCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
     const history = useHistory();
     function handleClick() {
         history.push("/");
@@ -38,13 +40,16 @@ function LoginAndRegister() {
             if (response.status == "200") {
                 let expires = new Date();
                 expires.setTime(expires.getTime() + (response.data.expires_in * 604800000));
+                var decoded = jwt_decode(response.data);
                 setCookie('access_token', response.data, { path: '/', expires });
-                setCookie('loged','1',{ path: '/' });
+                setCookie('loged', '1', { path: '/', expires });
+                setCookie('currentUserName',decoded.given_name, { path: '/', expires })
+                setCookie('user_or_studio', decoded.userType, { path: '/', expires });
                 handleClick();
             }
             console.log(check);
 
-       }
+        }
         );
         var dataContainer = document.getElementById('data-container');
         dataContainer.setAttribute('data-value', "Niepoprawny login lub hasło");
@@ -58,7 +63,7 @@ function LoginAndRegister() {
 
 
 
-        
+
     };
 
     const onSuccess = googleUser => {
@@ -70,7 +75,7 @@ function LoginAndRegister() {
         let expires = new Date();
         expires.setTime(expires.getTime() + (7 * 604800000));
         setCookie('access_token', profile, { path: '/', expires });
-        setCookie('loged','1',{ path: '/' });
+        setCookie('loged', '1', { path: '/' });
         console.log(cookies.loged);
         handleClick();
     };
@@ -82,17 +87,17 @@ function LoginAndRegister() {
         window.gapi.load('auth2', () => {
             window.gapi.auth2.init({
                 client_id: "643527918504-p9gm23e4egq4mgr2hgo49fcng03blv9p.apps.googleusercontent.com"
-        }).then(() => {
-                    window.gapi.signin2.render('my-signin2', {
-                        'scope': 'https://www.googleapis.com/auth/plus.login',
-                        'width': 250,
-                        'height': 50,
-                        'longtitle': true,
-                        'theme': 'dark',
-                        'onsuccess': onSuccess,
-                        'onfailure': onFailure
-                    });
+            }).then(() => {
+                window.gapi.signin2.render('my-signin2', {
+                    'scope': 'https://www.googleapis.com/auth/plus.login',
+                    'width': 250,
+                    'height': 50,
+                    'longtitle': true,
+                    'theme': 'dark',
+                    'onsuccess': onSuccess,
+                    'onfailure': onFailure
                 });
+            });
         });
     }, []);
     return (
@@ -105,7 +110,7 @@ function LoginAndRegister() {
                 <div className="loginForm">
                     <form onSubmit={handleSubmit(OnSubmit)}>
                         <label htmlFor="email">Email:</label>
-                        <input {...register("email",{
+                        <input {...register("email", {
                             required: 'Email jest wymagany', pattern: {
                                 value: /[A-Za-z0-9]+@[A-Za-z]+.[A-Za-z]/,
                                 message: 'Błędny adres email'

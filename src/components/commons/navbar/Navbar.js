@@ -5,12 +5,18 @@ import {
 } from 'react-router-dom';
 import DropdownMenu from './dropdownMenu/dropdownMenu';
 import { useCookies } from 'react-cookie';
+import { useHistory } from "react-router-dom";
 function Navbar() {
 
-    const [cookies,removeCookie] = useCookies(['access_token','loged']);
-    function logout(){
+    const history = useHistory();
+    const [cookies, setCookie,removeCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
+    function Logout(){
+        history.push("/");
         removeCookie('access_token');
         removeCookie('loged');
+        removeCookie('currentUserName');
+        removeCookie('user_or_studio');
+        
     }
     return (
         <div className="Navbar">
@@ -24,12 +30,13 @@ function Navbar() {
                 <div className="loginPane" >
                 <div className="fa-user-ico">
                     {cookies.loged!=='1'&&<Link to="/login"><button className="login btn-dark" >   ZALOGUJ SIĘ   </button></Link>} 
-                    {cookies.loged==='1'&&<button className="login btn-dark" onClick={logout}>   WYLOGUJ SIĘ   </button>} 
+                    {cookies.loged==='1'&&<button className="login btn-dark" onClick={Logout}>   WYLOGUJ SIĘ   </button>} 
                     </div>
             
                     {cookies.loged==='1'&&<DropdownMenu/>}
                 </div >
-                <Link to="/userPanel">< i className="fas fa-user fa-2x" > </i></Link>
+                {cookies.loged==='1'&&cookies.user_or_studio==="user"&&<Link to="/userPanel">< i className="fas fa-user fa-2x" > </i></Link>}
+                {cookies.loged==='1'&&cookies.user_or_studio==="studio"&&<Link to="/studioPanel">< i className="fas fa-user fa-2x" > </i></Link>}
             </div>
         </div >
     )

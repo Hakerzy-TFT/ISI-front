@@ -17,7 +17,7 @@ class userInfo {
 
 function DropdownMenu() {
     //let userin = new userInfo("", "", 0);
-    const [cookies, setCookie] = useCookies(['access_token', 'loged']);
+    const [cookies, setCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
     const [userin,setUser]=useState(null);
     useEffect(async() => {
         var token = cookies.access_token;

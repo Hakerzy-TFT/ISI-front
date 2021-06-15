@@ -11,11 +11,14 @@ import TermsOfUse from './components/fullComponents/termsOfUse/termsOfUse';
 import Support from './components/fullComponents/support/support';
 import LegalInfo from './components/fullComponents/legalInfo/legalInfo';
 import UserPanel from './components/fullComponents/panel/userPanel/userPanel';
+import StudioPanel from './components/fullComponents/panel/studioPanel/StudioPanel';
 import AccountInfo from './components/fullComponents/panel/accountInfo/accountInfo';
+import UserDetail from './components/fullComponents/panel/userdetail/UserDetail';
 import TopUpCoins from './components/fullComponents/topUpCoins/topUpCoins';
 import Studio from './components/fullComponents/studio/studio';
 import Game from './components/fullComponents/game/Game.js';
 import Lotery from './components/fullComponents/lotery/Lotery';
+import Bug from './components/fullComponents/bug/Bug';
 import React from 'react';
 import {
   BrowserRouter as Router,
@@ -47,6 +50,10 @@ function App() {
           <Route path="/studio" component={Studio} />
           <Route path="/game" component={Game} />
           <Route path="/lotery" component={Lotery} />
+          <Route path="/bug" component={Bug} />
+          <Route path="/userDetail" component={UserDetail} />
+          <Route path="/studioPanel" component={StudioPanel} />
+          
         </Switch>
 
       </Router>

@@ -13,7 +13,7 @@ class reviewelement {
 }
 
 function Review(props) {
-    const [cookies, setCookie] = useCookies(['access_token', 'loged']);
+    const [cookies, setCookie] = useCookies(['access_token', 'loged','currentUserName', 'user_or_studio']);
     const reviewobject = [];
 
     const [reviewob, setReviewob] = useState(null);
@@ -46,7 +46,7 @@ function Review(props) {
             }, 10000);
         }
         else {
-            if (cookies.loged) {
+            if (cookies.loged!=="undefined") {
                 var token = cookies.access_token;
                 var decoded = jwt_decode(token);
                 console.log(decoded);

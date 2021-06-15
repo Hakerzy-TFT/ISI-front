@@ -1,0 +1,22 @@
+.BugBody{
+    min-height:75vh;
+}
+.BugContent{
+    width:80vw;
+    min-height:73vh;
+    background-color:rgb(90, 63, 243);
+    margin-left:10vw;
+    margin-top:1vh;
+    margin-bottom:1vh;
+    color:white;
+}
+#BugReportContent{
+    width:70vw;
+    height:20vh;
+}
+#BugTitle{
+    width:70vw;
+}
+#BugDesc{
+    width:10vw;
+}
